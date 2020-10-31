@@ -23,13 +23,6 @@ class ImdbScraper(object):
         self.movie_dictionary['genre'] = genre_release_clean[0]
         self.movie_dictionary['release'] = genre_release_clean[1]
 
-    def getRottenTomatos(self,url):
-        data_raw = requests.get(url)
-        data_souped = soup(data_raw.content, 'html.parser')
-        percentage = data_souped.find_all('div', class_='mop-ratings-wrap__half audience-score')[0].find(class_='mop-ratings-wrap__percentage').text.replace('\n','').replace(' ','')
-        user_ratings = data_souped.rm_soup.find_all('div', class_='mop-ratings-wrap__half audience-score')[0].strong.text
-        self.movie_dictionary['rotten tomatos'] = f'{percentage} {user_ratings}'
-
     def saveToJson(self):
         movie = Movie(moviedata=self.movie_dictionary)
         movie.movieToJson()

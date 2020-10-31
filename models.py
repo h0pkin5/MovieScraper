@@ -7,7 +7,6 @@ movie_dict = {
         'plot': None,
         'release': None,
         'imdb': None,
-        'rotten tomatos': None,
         'genre': None,
         'director': None    
         }
@@ -23,7 +22,6 @@ class Movie(object):
         self.plot =moviedata['plot']
         self.release = moviedata['release']
         self.imdb = moviedata['imdb']
-        self.rotten_tomatos = moviedata['rotten tomatos']
         self.genre = moviedata['genre']
 
     def movieToJson(self):
